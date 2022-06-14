@@ -257,6 +257,10 @@ static/bmr-program-party.x: $(BMR)
 static/no-party.x: Protocols/ShareInterface.o
 Test/failure.x: Protocols/MalRepRingOptions.o
 
+primihub-party.x: Machines/primihub-party.cpp
+	rm -rf primihub-party.x
+	g++ -g Machines/primihub-party.cpp -o primihub-party.x -std=c++17 -ldl -L /root/work/primihub/bazel-bin -l primihub 
+
 ifeq ($(AVX_OT), 1)
 $(LIBSIMPLEOT): SimpleOT/Makefile
 	$(MAKE) -C SimpleOT
